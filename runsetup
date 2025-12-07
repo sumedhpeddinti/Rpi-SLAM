@@ -1,0 +1,27 @@
+v4l2-ctl --list-devices v4l2-ctl --list-devices 
+
+
+
+
+
+
+
+cd /home/sum/Desktop/RSLAM/ORB_SLAM3
+./Examples/Monocular/mono_webcam Vocabulary/ORBvoc.txt Examples/Monocular/Logitech_UVC.yaml auto 
+
+
+
+
+
+custom custom 
+
+
+
+cd /home/sum/Desktop/RSLAM/ORB_SLAM3
+./Examples/Monocular/mono_select_cam Vocabulary/ORBvoc.txt Examples/Monocular/Logitech_UVC.yaml
+
+
+
+server hoasted 
+
+cd /home/sum/Desktop/RSLAM/ORB_SLAM3 && ./Examples/Monocular/mono_http_stream ./Vocabulary/ORBvoc.txt ./Examples/Monocular/RaspberryPi.yaml "http://192.168.1.69:8080/?action=stream"

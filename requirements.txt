@@ -1,0 +1,28 @@
+# Raspberry Pi MJPEG Streaming Server Requirements
+# Install with: pip3 install -r requirements.txt
+
+# Web Framework
+Flask==2.3.3
+Werkzeug==2.3.7
+
+# Computer Vision
+opencv-python==4.8.1.78
+
+# Threading and async
+python-socketio==5.9.0
+python-engineio==4.7.1
+
+# Optional: For picamera support (RPi only)
+# picamera==1.13
+
+# Optional: For advanced features
+Pillow==10.0.0
+numpy==1.24.3
+
+# Optional: For secure HTTPS
+pyopenssl==23.2.0
+
+# Development
+pytest==7.4.2
+black==23.10.0
+flake8==6.1.0

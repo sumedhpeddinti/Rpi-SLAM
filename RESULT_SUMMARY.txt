@@ -1,0 +1,41 @@
+Monocular SLAM over HTTP Video — Evaluation Snapshot
+Date: 2025-12-03
+
+Scope
+- Input: HTTP MJPEG stream from a monocular camera (generalized; no device-specific identifiers).
+- Executable: `Examples/Monocular/mono_http_stream`
+- Configuration: `Examples/Monocular/RaspberryPi.yaml`
+- Vocabulary: `Vocabulary/ORBvoc.txt`
+
+Stream Properties (Representative)
+- Resolution: 640×480 (VGA)
+- Nominal input rate: ~25 FPS (as reported by the stream backend)
+- Backend: OpenCV VideoCapture (FFMPEG)
+
+Processing Throughput
+- Observed SLAM throughput: ~14 FPS (steady mid-teens across multiple minutes)
+- GPU acceleration: CUDA ORB extractor active when supported by the environment
+
+Tracking and Mapping
+- Map initialization: Hundreds of points on initial map creation
+- Robustness: Occasional tracking loss events; built-in relocalization restores tracking
+- Outputs: Viewer active; trajectory saved to `KeyFrameTrajectory.txt` on shutdown
+
+Notes on Reproducibility
+- Throughput and robustness depend on scene content, motion profile, network latency, resolution, and hardware (CPU/GPU).
+- Accurate camera intrinsics are recommended. Calibrate and update the YAML for consistent results.
+
+Recommendations
+- If unstable: reduce motion speed, improve illumination, increase `ORBextractor.nFeatures`, or lower input resolution.
+- For lower latency and higher stability: prefer wired network and tune MJPEG quality/bitrate.
+
+How to Run (Generalized)
+1) Build from repository root:
+   ./build.sh
+2) Run the HTTP-stream SLAM example (replace STREAM_URL with your endpoint):
+   ./Examples/Monocular/mono_http_stream \
+     ./Vocabulary/ORBvoc.txt \
+     ./Examples/Monocular/RaspberryPi.yaml \
+     "STREAM_URL"
+
+See `PROJECT_FULL_SUMMARY.md` and `THESIS_SUMMARY.md` for architecture and methodology details.
