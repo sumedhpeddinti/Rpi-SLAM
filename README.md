@@ -80,13 +80,4 @@ Troubleshooting
 - For CMake errors about OpenCV version, ensure `pkg-config --modversion opencv4` returns 4.6+.
 - If Pangolin headers missing, confirm `sudo make install` from Pangolin build completed.
 
-Next steps
-- Optionally package a Dockerfile for Mint/Ubuntu 24.04 with CUDA 12.4+ and OpenCV CUDA
-- Integrate a runtime log line indicating whether GPU ORB was used per frame.
-
-cd /home/sum/Desktop/NSLAM/ORB_SLAM3
-./Examples/Monocular/mono_webcam ./Vocabulary/ORBvoc.txt ./Examples/Monocular/Logitech_UVC.yaml auto
-
-cd /home/sum/Desktop/NSLAM/ORB_SLAM3
-./Examples/Monocular/mono_webcam ./Vocabulary/ORBvoc.txt ./Examples/Monocular/Logitech_UVC.yaml auto 640 480
 
